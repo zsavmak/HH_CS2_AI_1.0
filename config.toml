@@ -1,0 +1,34 @@
+[main]
+detector = "yolov7" # main detector. Respective config section must be present
+
+[grabber]
+# window_title = "Counter-Strike: Global Offensive - Direct3D 9" # capture windows pos & size by window rect
+window_title = "Counter-Strike 2"
+
+# or set custom caption coords
+left = 0
+top = 0
+width = 1000
+height = 1000
+
+[yolov8]
+# weights = "./yolov8/yolov8s_csgoV1_640.pt"
+weights = "./yolov8/yolov7-csgoV6_640.pt"
+
+[yolov7]
+weights = "./yolov7/yolov7-csgoV5_1024.pt"
+# weights = "./yolov7/yolov7-csgoV6_640.pt"
+inference_size = 640
+conf_thres = 0.1
+iou_thres = 0.45
+augment = 0
+device = ""
+resize_image_to_fit_multiply_of_32 = false #lowers performance. Only use if grabbed image size is not multiply of 32
+
+[cv2]
+title = "CS:GO AI vision"
+show_window = true #lowers performance not that much, but can be turned of to get extra few inference FPS (1-2 or smth like that)
+show_fps = true
+resize_window = false #lowers performance. Should not be used
+window_width = 0 #used only if resize_window is set to true
+window_height = 0 #used only if resize_window is set to true
